@@ -2,6 +2,7 @@ const express = require("express");
 const expressAsyncHandler = require("express-async-handler");
 const bcryptjs = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const verifyToken = require("../middlewares/verifyToken");
 const userRouter = express.Router();
 
 let userCollection;
@@ -52,7 +53,7 @@ userRouter.post(
       );
 
       delete user.password;
-      res.send({
+      return res.send({
         message: "Admin Logged in",
         statusCode: 5,
         token: token,
@@ -85,5 +86,10 @@ userRouter.post(
     });
   })
 );
+
+// Protected Route test
+userRouter.get("/protected", verifyToken, (req, res) => {
+  res.send("Accessed");
+});
 
 module.exports = userRouter;
