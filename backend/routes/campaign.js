@@ -9,6 +9,22 @@ campaignRouter.use((req, res, next) => {
   next();
 });
 
+campaignRouter.get(
+  "/campaigns",
+  expressAsyncHandler(async (req, res) => {
+    const campaigns = await campaignCollection.find({
+      verified: true,
+      completed: false,
+    });
+
+    res.send({
+      message: "All Active Campaigns",
+      statusCode: 9,
+      payload: campaigns,
+    });
+  })
+);
+
 campaignRouter.post(
   "/new-campaign",
   expressAsyncHandler(async (req, res) => {
