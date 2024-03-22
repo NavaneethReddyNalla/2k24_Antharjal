@@ -156,18 +156,6 @@ export default function CampaignEnrollmentForm() {
               <option value="AB-">AB-</option>
             </select>
           </div>
-          {/* <div>
-            <label htmlFor="age" className='mb-2 mx-2 form-label'>Hospital Name</label>
-
-            <input type="text" placeholder="Hospital Name" {...register("Hospital Name", {required: true, maxLength: 78})} />
-
-        </div> */}
-          {/* <div>
-            <label htmlFor="age" className='mb-2 mx-2 form-label'>Hospital Address</label>
-
-            <textarea rows='5' className='form-control mb-5' {...register('address')}>Address</textarea>
-
-        </div> */}
           <div>
             <label htmlFor="age" className="mb-2 mx-2 form-label">
               Patient Room Number
