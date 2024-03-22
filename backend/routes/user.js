@@ -18,6 +18,10 @@ userRouter.post(
     const user = req.body;
     const dbUser = await userCollection.findOne({ username: user.username });
 
+    if (user.username === process.env.ADMIN_USERNAME) {
+      return res.send({ message: "Not Authorized", statusCode: 6 });
+    }
+
     if (dbUser !== null) {
       return res.send({ message: "User Already Exists", statusCode: 1 });
     }
@@ -37,14 +41,33 @@ userRouter.post(
     const user = req.body;
     const dbUser = await userCollection.findOne({ username: user.username });
 
+    if (
+      user.username === process.env.ADMIN_USERNAME &&
+      user.password === process.env.ADMIN_PASSWORD
+    ) {
+      const token = jwt.sign(
+        { username: user.username },
+        process.env.SECRET_KEY,
+        { expiresIn: "1d" }
+      );
+
+      delete user.password;
+      res.send({
+        message: "Admin Logged in",
+        statusCode: 5,
+        token: token,
+        user: user,
+      });
+    }
+
     if (dbUser === null) {
-      return res.send({ statusCode: 3, message: "Invalid Username" });
+      return res.send({ statusCode: 7, message: "Invalid Username" });
     }
 
     const status = await bcryptjs.compare(user.password, dbUser.password);
 
     if (status === false) {
-      return res.send({ message: "Invalid Password", status: 3 });
+      return res.send({ message: "Invalid Password", statusCode: 3 });
     }
 
     const token = jwt.sign(
