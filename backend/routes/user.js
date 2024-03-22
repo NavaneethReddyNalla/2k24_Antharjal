@@ -4,11 +4,10 @@ const bcryptjs = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const userRouter = express.Router();
 
-let userCollection, campaignCollection;
+let userCollection;
 
 userRouter.use((req, res, next) => {
   userCollection = req.app.get("userCollection");
-  campaignCollection = req.app.get("campaignCollection");
   next();
 });
 

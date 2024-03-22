@@ -1,7 +1,10 @@
 const express = require("express");
 const app = express();
 const mongoClient = require("mongodb").MongoClient;
+
 const userRouter = require("./routes/user");
+const campaignRouter = require("./routes/campaign");
+
 require("dotenv").config();
 
 mongoClient
@@ -23,6 +26,7 @@ const port = process.env.PORT || 4040;
 
 app.use(express.json());
 app.use("/user", userRouter);
+app.use("/campaign", campaignRouter);
 
 app.use((err, req, res, next) => {
   console.log(err);
