@@ -12,10 +12,12 @@ campaignRouter.use((req, res, next) => {
 campaignRouter.get(
   "/campaigns",
   expressAsyncHandler(async (req, res) => {
-    const campaigns = await campaignCollection.find({
-      verified: true,
-      completed: false,
-    });
+    const campaigns = await campaignCollection
+      .find({
+        verified: true,
+        completed: false,
+      })
+      .toArray();
 
     res.send({
       message: "All Active Campaigns",
@@ -29,15 +31,16 @@ campaignRouter.post(
   "/new-campaign",
   expressAsyncHandler(async (req, res) => {
     const campaign = req.body;
-    res.send(campaign);
+    await campaignCollection.insertOne(campaign);
+    res.send({ message: "Campaign Created", statusCode: 10 });
   })
 );
+
 campaignRouter.get(
   "/campaign",
-  expressAsyncHandler( (req,res)=>
-  {
+  expressAsyncHandler((req, res) => {
     res.send("hello");
   })
-)
+);
 
 module.exports = campaignRouter;
