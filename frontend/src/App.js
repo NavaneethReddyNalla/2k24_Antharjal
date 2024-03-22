@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import CampaignEnrollmentForm from './Components/CampaignEnrollmentForm';
+import CampaignEnrollmentForm from './Components/Enrollment/CampaignEnrollmentForm';
 
 function App() {
   return (
