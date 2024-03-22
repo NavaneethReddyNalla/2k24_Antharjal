@@ -1,9 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
+import CampaignEnrollmentForm from './Components/CampaignEnrollmentForm';
 
 function App() {
   return (
     <div className="App">
+      <CampaignEnrollmentForm></CampaignEnrollmentForm>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
