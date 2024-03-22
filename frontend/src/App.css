@@ -36,3 +36,7 @@
     transform: rotate(360deg);
   }
 }
+body
+{
+  background-image: url('https://hansenfoundationnj.org/wp-content/uploads/2018/01/hand-holding2.jpg');
+}

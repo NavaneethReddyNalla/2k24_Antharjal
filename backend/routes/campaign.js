@@ -29,7 +29,15 @@ campaignRouter.post(
   "/new-campaign",
   expressAsyncHandler(async (req, res) => {
     const campaign = req.body;
+    res.send(campaign);
   })
 );
+campaignRouter.get(
+  "/campaign",
+  expressAsyncHandler( (req,res)=>
+  {
+    res.send("hello");
+  })
+)
 
 module.exports = campaignRouter;

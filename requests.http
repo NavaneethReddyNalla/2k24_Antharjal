@@ -31,12 +31,27 @@ GET http://localhost:5000/user/protected HTTP/1.1
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QiLCJpYXQiOjE3MTExMjY4NTIsImV4cCI6MTcxMTIxMzI1Mn0.jRT0NYc1BCoukrHDLe8EAVzm1JxzyBIxnPgv5yoXltc
 
 ### Campaign Test
-GET http://localhost:5000/campaign/ HTTP/1.1
+GET http://localhost:5000/campaign HTTP/1.1
 
 ### Campaign Creation
 POST http://localhost:5000/campaign/new-campaign HTTP/1.1
 Content-Type: application/json
 
 {
-    
+    "campaignTitle":"HeartSurgeryFunding",
+    "firstName":"Madhumitha",
+    "lastName":"Hatti",
+    "age":20,
+    "gender":"female",
+    "mobileNumber":8919224476,
+    "email":"hattimadhumitha@gmail.com",
+    "bloodGroup":"AB+",
+    "hospitalName":"Yasodha",
+    "hospitalAddress":"Hi-TechCity,Hyderabad,Telangana",
+    "patientRoomNo":203,
+    "fundRequired":"500000",
+    "fundingDeadline":"24-03-2024",
+    "verification":"false",
+    "completed":"false",
+    "id":"23-03-2024"
 }
