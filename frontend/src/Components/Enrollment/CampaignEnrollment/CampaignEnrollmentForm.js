@@ -22,7 +22,7 @@ export default function CampaignEnrollmentForm() {
           onSubmit={handleSubmit(handleFormSubmit)}
         >
           <div className="mb-3">
-            <label htmlFor="campaignTitle" className=" mx-2 form-label ">
+            <label htmlFor="campaignTitle" className=" text-white mx-2 form-label ">
               Campaign Title
             </label>
 
@@ -35,7 +35,7 @@ export default function CampaignEnrollmentForm() {
           </div>
           <div className="row mb-2">
             <div className="col-xs-1 col-6">
-              <label htmlFor="firstname" className="mb-2 mx-2 form-label">
+              <label htmlFor="firstname" className="mb-2 mx-2 form-label text-white">
                 First-Name
               </label>
               <input
@@ -46,7 +46,7 @@ export default function CampaignEnrollmentForm() {
                 {...register("firstName", {
                   required: true,
                   minLength: 4,
-                  maxLength: 6,
+                  maxLength: 30,
                 })}
               />
 
@@ -61,7 +61,7 @@ export default function CampaignEnrollmentForm() {
               )}
             </div>
             <div className="col-xs-1 col-6 ">
-              <label htmlFor="lastname" className="mb-2 mx-2 form-label">
+              <label htmlFor="lastname" className="mb-2 mx-2 form-label text-white">
                 Last Name
               </label>
               <input
@@ -72,7 +72,7 @@ export default function CampaignEnrollmentForm() {
                 {...register("lastName", {
                   required: true,
                   minLength: 4,
-                  maxLength: 6,
+                  maxLength: 40,
                 })}
               />
 
@@ -88,26 +88,27 @@ export default function CampaignEnrollmentForm() {
             </div>
           </div>
           <div className="mb-3">
-            <label htmlFor="age" className="mb-2 mx-2 form-label">
+            <label htmlFor="age" className="mb-2 mx-2 form-label text-white">
               Age
             </label>
             <input
               type="number"
               placeholder="Age"
-              {...register("age", { required: true, max: 3 })}
+              {...register("age", { required: true, max: 100 })}
               className="form-control"
             />
           </div>
 
           <div className="mb-3">
-            <h6>Select Gender</h6>
+            <h6 className="text-white">Select Gender</h6>
             <div className="form-check col-xs-1 col-6">
               <input
                 type="radio"
                 id="form-check-input"
+                value="male"
                 {...register("gender")}
               />
-              <label htmlFor="m" className="form-check-label">
+              <label htmlFor="m" className="form-check-label text-white">
                 Male
               </label>
             </div>
@@ -115,16 +116,17 @@ export default function CampaignEnrollmentForm() {
               <input
                 type="radio"
                 id="form-check-input"
+                value="female"
                 {...register("gender")}
               />
-              <label htmlFor="f" className="form-check-label">
+              <label htmlFor="f" className="form-check-label text-white">
                 Female
               </label>
             </div>
           </div>
 
           <div className="mb-3">
-            <label htmlFor="mobileno" className="mb-2 mx-2 form-label">
+            <label htmlFor="mobileno" className="mb-2 mx-2 form-label text-white">
               Mobile Number
             </label>
 
@@ -137,7 +139,7 @@ export default function CampaignEnrollmentForm() {
           </div>
 
           <div className="mb-3">
-            <label htmlFor="email" className="mb-2 mx-2 form-label">
+            <label htmlFor="email" className="mb-2 mx-2 form-label text-white">
               Email
             </label>
 
@@ -150,7 +152,7 @@ export default function CampaignEnrollmentForm() {
           </div>
 
           <div className="mb-3">
-            <label htmlFor="bloodGroup" className="mb-2 mx-2 form-label">
+            <label htmlFor="bloodGroup" className="mb-2 mx-2 form-label text-white">
               BloodGroup
             </label>
             <select {...register("bloodGroup", { required: true })} className="form-control">
@@ -166,7 +168,7 @@ export default function CampaignEnrollmentForm() {
           </div>
 
           <div className="mb-3">
-            <label htmlFor="hospitalName" className="mb-2 mx-2 form-label">
+            <label htmlFor="hospitalName" className="mb-2 mx-2 form-label text-white">
               HospitalName
             </label>
 
@@ -178,7 +180,7 @@ export default function CampaignEnrollmentForm() {
           </div>
 
           <div className="mb-3">
-            <label htmlFor="address" className="mb-2 mx-2 form-label">
+            <label htmlFor="address" className="mb-2 mx-2 form-label text-white">
               HospitalAddress
             </label>
 
@@ -192,7 +194,7 @@ export default function CampaignEnrollmentForm() {
           </div>
 
           <div className="mb-3">
-            <label htmlFor="age" className="mb-2 mx-2 form-label">
+            <label htmlFor="age" className="mb-2 mx-2 form-label text-white">
               Patient Room No
             </label>
             <input
@@ -204,7 +206,7 @@ export default function CampaignEnrollmentForm() {
           </div>
 
           <div className="mb-3">
-            <label htmlFor="fundRequired" className="mb-2 mx-2 form-label">
+            <label htmlFor="fundRequired" className="mb-2 mx-2 form-label text-white">
               Fund Required
             </label>
 
@@ -217,7 +219,7 @@ export default function CampaignEnrollmentForm() {
           </div>
 
           <div className="mb-3">
-            <label htmlFor="fundingDeadLine" className="mb-2 mx-2 form-label">
+            <label htmlFor="fundingDeadLine" className="mb-2 mx-2 form-label text-white">
               Funding Deadline
             </label>
 
