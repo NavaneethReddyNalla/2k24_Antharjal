@@ -262,7 +262,7 @@ export default function CampaignEnrollmentForm() {
             <input
               type="number"
               placeholder="Fund Required"
-              {...register("fundRequired", { required: true })}
+              {...register("fundRequired", { required: true, min: 5000 })}
               className="form-control"
             />
           </div>
@@ -276,7 +276,7 @@ export default function CampaignEnrollmentForm() {
             </label>
 
             <input
-              type="datetime"
+              type="date"
               placeholder="Deadline"
               {...register("fundingDeadline", { required: true })}
               className="form-control"
