@@ -1,5 +1,6 @@
 const express = require("express");
 const expressAsyncHandler = require("express-async-handler");
+const verifyToken = require("../middlewares/verifyToken");
 const adminRouter = express.Router();
 
 let campaignCollection;
@@ -12,6 +13,7 @@ adminRouter.use((req, res, next) => {
 // Displaying all unverified Campaigns
 adminRouter.get(
   "/to-verify",
+  verifyToken,
   expressAsyncHandler(async (req, res) => {
     const campaigns = await campaignCollection
       .find({ verified: false })
@@ -27,6 +29,7 @@ adminRouter.get(
 // Verifying a single Campaign
 adminRouter.put(
   "/verify/:id",
+  verifyToken,
   expressAsyncHandler(async (req, res) => {
     await campaignCollection.updateOne(
       { id: +req.params.id },

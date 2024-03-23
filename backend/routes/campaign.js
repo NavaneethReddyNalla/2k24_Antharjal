@@ -1,5 +1,6 @@
 const express = require("express");
 const expressAsyncHandler = require("express-async-handler");
+const verifyToken = require("../middlewares/verifyToken");
 const campaignRouter = express.Router();
 
 let campaignCollection;
@@ -11,6 +12,7 @@ campaignRouter.use((req, res, next) => {
 
 campaignRouter.get(
   "/campaigns",
+  verifyToken,
   expressAsyncHandler(async (req, res) => {
     const campaigns = await campaignCollection
       .find({
@@ -29,6 +31,7 @@ campaignRouter.get(
 
 campaignRouter.post(
   "/new-campaign",
+  verifyToken,
   expressAsyncHandler(async (req, res) => {
     const campaign = req.body;
     await campaignCollection.insertOne(campaign);

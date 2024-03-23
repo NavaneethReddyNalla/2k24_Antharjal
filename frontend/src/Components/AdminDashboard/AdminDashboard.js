@@ -3,27 +3,7 @@ import { getAxiosWithToken } from "../util";
 import { useNavigate } from "react-router-dom";
 
 function AdminDashboard() {
-  const [campaigns, setCampaigns] = useState([
-    {
-      campaignTitle: "Heart Surgery Funding",
-      firstName: "Madhumitha",
-      lastName: "Hatti",
-      age: 20,
-      gender: "female",
-      mobileNumber: 8919224476,
-      email: "hattimadhumitha@gmail.com",
-      bloodGroup: "AB+",
-      hospitalName: "Yasodha",
-      hospitalAddress: "Hi-TechCity,Hyderabad,Telangana",
-      patientRoomNo: 203,
-      fundsRequired: 500000,
-      fundingDeadline: "24-03-2024",
-      verified: true,
-      completed: false,
-      id: 191713865017007,
-      fundsRaised: 10000,
-    },
-  ]);
+  const [campaigns, setCampaigns] = useState([]);
   const [err, setErr] = useState("");
   const navigate = useNavigate();
 
@@ -31,23 +11,23 @@ function AdminDashboard() {
     navigate(`../admin/campaign/${campaign.id}`, { state: campaign });
   }
 
-  //   useEffect(() => {
-  //     const axiosWithToken = getAxiosWithToken();
+  useEffect(() => {
+    const axiosWithToken = getAxiosWithToken();
 
-  //     const getCampaigns = async () => {
-  //       const res = await axiosWithToken.get(
-  //         "http://localhost:5000/admin/to-verify"
-  //       );
+    const getCampaigns = async () => {
+      const res = await axiosWithToken.get(
+        "http://localhost:5000/admin/to-verify"
+      );
 
-  //       if (res.data.statusCode === 12) {
-  //         setCampaigns(res.data.payload);
-  //       } else {
-  //         setErr(res.data.message);
-  //       }
-  //     };
+      if (res.data.statusCode === 12) {
+        setCampaigns(res.data.payload);
+      } else {
+        setErr(res.data.message);
+      }
+    };
 
-  //     getCampaigns();
-  //   }, []);
+    getCampaigns();
+  }, []);
 
   return (
     <div className="p-5 admin-dashboard">
