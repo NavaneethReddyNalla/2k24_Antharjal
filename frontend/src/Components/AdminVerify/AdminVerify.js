@@ -1,9 +1,23 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import ProgressBar from "../ProgressBar/ProgressBar";
+import { getAxiosWithToken } from "../util";
 
 function AdminVerify() {
   const campaign = useLocation().state;
+  const navigate = useNavigate();
+
+  async function verify() {
+    const axiosWithToken = getAxiosWithToken();
+
+    const res = await axiosWithToken.put(
+      `http://localhost:5000/admin/verify/${campaign.id}`
+    );
+
+    if (res.data.statusCode === 11) {
+      navigate("../admin-dashboard");
+    }
+  }
 
   return (
     <div className="admin-verify">
@@ -28,8 +42,15 @@ function AdminVerify() {
           bgcolor="orange"
           progress={(campaign.fundsRaised / campaign.fundsRequired) * 100}
         />
-        <button className="btn btn-danger">Cancel</button>
-        <button className="btn btn-success ms-5">Verify</button>
+        <button
+          className="btn btn-danger"
+          onClick={() => navigate("../admin-dashboard")}
+        >
+          Cancel
+        </button>
+        <button className="btn btn-success ms-5" onClick={verify}>
+          Verify
+        </button>
       </div>
     </div>
   );
