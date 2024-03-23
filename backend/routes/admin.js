@@ -13,7 +13,9 @@ adminRouter.use((req, res, next) => {
 adminRouter.get(
   "/to-verify",
   expressAsyncHandler(async (req, res) => {
-    const campaigns = await campaignCollection.find({ verified: false });
+    const campaigns = await campaignCollection
+      .find({ verified: false })
+      .toArray();
     res.send({
       message: "All unverified campaigns",
       statusCode: 12,
