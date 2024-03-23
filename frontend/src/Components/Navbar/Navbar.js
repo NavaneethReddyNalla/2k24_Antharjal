@@ -1,7 +1,7 @@
 import React from "react";
-import { NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./Navbar.css";
-import Logo from '../../images/Logo.png'
+import Logo from "../../images/Logo.png";
 
 const Navbar = () => {
   return (
@@ -26,7 +26,7 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link fs-5" to="/donate">
+            <NavLink className="nav-link fs-5" to="/campaigns">
               Donate
             </NavLink>
           </li>
