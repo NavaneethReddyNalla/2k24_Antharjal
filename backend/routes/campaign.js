@@ -12,7 +12,6 @@ campaignRouter.use((req, res, next) => {
 
 campaignRouter.get(
   "/campaigns",
-  verifyToken,
   expressAsyncHandler(async (req, res) => {
     const campaigns = await campaignCollection
       .find({

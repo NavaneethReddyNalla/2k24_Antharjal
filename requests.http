@@ -59,3 +59,9 @@ Content-Type: application/json
     "id": 191713865017007,
     "fundsRaised": 0
 }
+
+### Admin Unverified
+GET http://localhost:5000/admin/to-verify HTTP/1.1
+
+### Admin Verify
+PUT http://localhost:5000/admin/verify/191713865017007 HTTP/1.1

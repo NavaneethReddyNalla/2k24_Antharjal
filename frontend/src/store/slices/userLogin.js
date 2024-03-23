@@ -8,9 +8,11 @@ export const userLoginThunk = createAsyncThunk(
 
     res = await axios.post("http://localhost:5000/user/login", userData);
 
-    if (res.data.statusCode === 4) {
+    if (res.data.statusCode === 4 || res.data.statusCode === 5) {
+      console.log(res.data);
       sessionStorage.setItem("token", res.data.token);
       return res.data;
+      console.log(res.data);
     } else {
       return thunkApi.rejectWithValue(res.data.message);
     }
