@@ -1,5 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
+import ProgressBar from "../ProgressBar/ProgressBar";
 
 function AdminVerify() {
   const campaign = useLocation().state;
@@ -11,7 +12,7 @@ function AdminVerify() {
         <p>
           Name: {campaign.firstName} {campaign.lastName}
         </p>
-        <p>gender: {campaign.age}</p>
+        <p>Age: {campaign.age}</p>
         <p>Gender: {campaign.gender}</p>
         <p>Mobile Number: {campaign.mobileNumber}</p>
         <p>Email: {campaign.email}</p>
@@ -21,6 +22,14 @@ function AdminVerify() {
         <p>Patient Room Number: {campaign.patientRoomNo}</p>
         <p>Funds Required: {campaign.fundsRequired}</p>
         <p>Funding Deadline: {campaign.fundingDeadline}</p>
+        <p>Funds Raised: {campaign.fundsRaised} </p>
+        <p>Progress: </p>
+        <ProgressBar
+          bgcolor="orange"
+          progress={(campaign.fundsRaised / campaign.fundsRequired) * 100}
+        />
+        <button className="btn btn-danger">Cancel</button>
+        <button className="btn btn-success ms-5">Verify</button>
       </div>
     </div>
   );

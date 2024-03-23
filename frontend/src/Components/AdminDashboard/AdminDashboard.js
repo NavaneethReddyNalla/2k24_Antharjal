@@ -21,7 +21,7 @@ function AdminDashboard() {
       verified: true,
       completed: false,
       id: 191713865017007,
-      fundsRaised: 0,
+      fundsRaised: 10000,
     },
   ]);
   const [err, setErr] = useState("");
