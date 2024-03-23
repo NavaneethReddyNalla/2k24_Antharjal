@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import "./CampaignEnrollment.css";
 import { useForm } from "react-hook-form";
+import { getAxiosWithToken } from "../../util";
+import { useNavigate } from "react-router-dom";
 
 export default function CampaignEnrollmentForm() {
   const {
@@ -8,21 +10,44 @@ export default function CampaignEnrollmentForm() {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const [err, setErr] = useState("");
+  const navigate = useNavigate();
 
-  function handleFormSubmit(data) {
-    console.log(data);
+  async function handleFormSubmit(data) {
+    const axiosWithToken = getAxiosWithToken();
+
+    data.id = Date.now();
+    data.verified = false;
+    data.completed = false;
+    data.fundsRaised = 0;
+
+    const res = await axiosWithToken.post(
+      "http://localhost:5000/campaign/new-campaign",
+      data
+    );
+
+    if (res.data.statusCode === 10) {
+      navigate("/campaigns");
+    } else {
+      setErr(res.data.message);
+    }
   }
 
   return (
     <div>
-      <h1 className="campaignEnrollmentH1 display-1 text-center text-white">Campaign Enrollment</h1>
+      <h1 className="campaignEnrollmentH1 display-1 text-center text-white">
+        Campaign Enrollment
+      </h1>
       <div className="campaingnEnrollmentForm m-3 w-50 mx-auto p-4">
         <form
           className=" w-100 mx-auto mt-5 text-start"
           onSubmit={handleSubmit(handleFormSubmit)}
         >
           <div className="mb-3">
-            <label htmlFor="campaignTitle" className=" text-white mx-2 form-label ">
+            <label
+              htmlFor="campaignTitle"
+              className=" text-white mx-2 form-label "
+            >
               Campaign Title
             </label>
 
@@ -35,7 +60,10 @@ export default function CampaignEnrollmentForm() {
           </div>
           <div className="row mb-2">
             <div className="col-xs-1 col-6">
-              <label htmlFor="firstname" className="mb-2 mx-2 form-label text-white">
+              <label
+                htmlFor="firstname"
+                className="mb-2 mx-2 form-label text-white"
+              >
                 First-Name
               </label>
               <input
@@ -61,7 +89,10 @@ export default function CampaignEnrollmentForm() {
               )}
             </div>
             <div className="col-xs-1 col-6 ">
-              <label htmlFor="lastname" className="mb-2 mx-2 form-label text-white">
+              <label
+                htmlFor="lastname"
+                className="mb-2 mx-2 form-label text-white"
+              >
                 Last Name
               </label>
               <input
@@ -126,7 +157,10 @@ export default function CampaignEnrollmentForm() {
           </div>
 
           <div className="mb-3">
-            <label htmlFor="mobileno" className="mb-2 mx-2 form-label text-white">
+            <label
+              htmlFor="mobileno"
+              className="mb-2 mx-2 form-label text-white"
+            >
               Mobile Number
             </label>
 
@@ -152,10 +186,16 @@ export default function CampaignEnrollmentForm() {
           </div>
 
           <div className="mb-3">
-            <label htmlFor="bloodGroup" className="mb-2 mx-2 form-label text-white">
+            <label
+              htmlFor="bloodGroup"
+              className="mb-2 mx-2 form-label text-white"
+            >
               BloodGroup
             </label>
-            <select {...register("bloodGroup", { required: true })} className="form-control">
+            <select
+              {...register("bloodGroup", { required: true })}
+              className="form-control"
+            >
               <option value="O+">O+</option>
               <option value="O-">O-</option>
               <option value="A+">A+</option>
@@ -168,7 +208,10 @@ export default function CampaignEnrollmentForm() {
           </div>
 
           <div className="mb-3">
-            <label htmlFor="hospitalName" className="mb-2 mx-2 form-label text-white">
+            <label
+              htmlFor="hospitalName"
+              className="mb-2 mx-2 form-label text-white"
+            >
               HospitalName
             </label>
 
@@ -180,7 +223,10 @@ export default function CampaignEnrollmentForm() {
           </div>
 
           <div className="mb-3">
-            <label htmlFor="address" className="mb-2 mx-2 form-label text-white">
+            <label
+              htmlFor="address"
+              className="mb-2 mx-2 form-label text-white"
+            >
               HospitalAddress
             </label>
 
@@ -206,7 +252,10 @@ export default function CampaignEnrollmentForm() {
           </div>
 
           <div className="mb-3">
-            <label htmlFor="fundRequired" className="mb-2 mx-2 form-label text-white">
+            <label
+              htmlFor="fundRequired"
+              className="mb-2 mx-2 form-label text-white"
+            >
               Fund Required
             </label>
 
@@ -219,7 +268,10 @@ export default function CampaignEnrollmentForm() {
           </div>
 
           <div className="mb-3">
-            <label htmlFor="fundingDeadLine" className="mb-2 mx-2 form-label text-white">
+            <label
+              htmlFor="fundingDeadLine"
+              className="mb-2 mx-2 form-label text-white"
+            >
               Funding Deadline
             </label>
 
@@ -231,7 +283,10 @@ export default function CampaignEnrollmentForm() {
             />
           </div>
 
-          <button type="campaignEnrollmentButton submit" className="btn btn-success mt-3">
+          <button
+            type="campaignEnrollmentButton submit"
+            className="btn btn-success mt-3"
+          >
             Register
           </button>
         </form>
