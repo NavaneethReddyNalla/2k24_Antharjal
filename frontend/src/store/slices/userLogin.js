@@ -12,7 +12,6 @@ export const userLoginThunk = createAsyncThunk(
       console.log(res.data);
       sessionStorage.setItem("token", res.data.token);
       return res.data;
-      console.log(res.data);
     } else {
       return thunkApi.rejectWithValue(res.data.message);
     }
