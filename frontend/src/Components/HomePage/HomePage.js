@@ -8,17 +8,17 @@ function Homepage() {
                     <h5 className='fs-3'>Need Funds to Pay For a Medical<br/> Emergency or Social Cause?</h5>
                     <div className='statistics' >
                         <div className='stats1'>
-                            <span className='font-weight-bold text-primary'>0%</span><br/>
+                            <span className='font-weight-bold text-warning'>0%</span><br/>
                             platform fee
                         </div>
 
                         <div className='stats2'>
-                            <span  className='font-weight-bold text-primary'>72 Lakh+</span><br/>
+                            <span  className='font-weight-bold text-warning'>72 Lakh+</span><br/>
                             Donors
                         </div>
 
                         <div className='stats2'>
-                            <span  className='font-weight-bold text-primary'>3.2 Lakh+</span><br/>
+                            <span  className='font-weight-bold text-warning'>3.2 Lakh+</span><br/>
                             Lifes Saved
                         </div>
                         </div>
