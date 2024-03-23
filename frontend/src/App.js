@@ -3,6 +3,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootLayout from "./Components/RootLayout/RootLayout";
 import Homepage from "./Components/HomePage/HomePage";
 import CampaignEnrollment from "./Components/Enrollment/CampaignEnrollment/CampaignEnrollmentForm";
+import Register from "./Components/Register/Register";
+import Login from "./Components/Login/Login";
 
 // import CampaignEnrollmentForm from './Components/CampaignEnrollmentForm';
 
@@ -19,6 +21,14 @@ function App() {
         {
           path: "create-campaign",
           element: <CampaignEnrollment />,
+        },
+        {
+          path: "register",
+          element: <Register />,
+        },
+        {
+          path: "login",
+          element: <Login />,
         },
       ],
     },
