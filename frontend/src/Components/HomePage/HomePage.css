@@ -1,5 +1,7 @@
 .banner {
-    background-image: url("../../images/HomePageChild_img.jpeg");
+    /* background-image: url("../../images/HomePageChild_img.jpeg"); */
+    background-image: url("../../images/Banner_img.jpg");
+
     background-size: cover;
     height: 100vh;
     display: flex;
