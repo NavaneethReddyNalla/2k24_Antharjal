@@ -5,8 +5,8 @@ import Homepage from "./Components/HomePage/HomePage";
 import CampaignEnrollment from "./Components/Enrollment/CampaignEnrollment/CampaignEnrollmentForm";
 import Register from "./Components/Register/Register";
 import Login from "./Components/Login/Login";
-
-// import CampaignEnrollmentForm from './Components/CampaignEnrollmentForm';
+import AdminDashboard from "./Components/AdminDashboard/AdminDashboard";
+import AdminVerify from "./Components/AdminVerify/AdminVerify";
 
 function App() {
   let browserRouter = createBrowserRouter([
@@ -29,6 +29,14 @@ function App() {
         {
           path: "login",
           element: <Login />,
+        },
+        {
+          path: "admin-dashboard",
+          element: <AdminDashboard />,
+        },
+        {
+          path: "admin/campaign/:id",
+          element: <AdminVerify />,
         },
       ],
     },
