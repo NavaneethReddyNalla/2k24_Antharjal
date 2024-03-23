@@ -7,6 +7,8 @@ import Register from "./Components/Register/Register";
 import Login from "./Components/Login/Login";
 import AdminDashboard from "./Components/AdminDashboard/AdminDashboard";
 import AdminVerify from "./Components/AdminVerify/AdminVerify";
+import Donate from "./Components/AllCampaigns/AllCampaigns";
+//import AllCampaigns from './Components/AllCampaigns/AllCampaigns';
 
 function App() {
   let browserRouter = createBrowserRouter([
@@ -38,6 +40,10 @@ function App() {
           path: "admin/campaign/:id",
           element: <AdminVerify />,
         },
+        {
+          path:"donate",
+          element :<Donate/>
+        }
       ],
     },
   ]);

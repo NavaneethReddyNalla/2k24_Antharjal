@@ -74,6 +74,7 @@ export default function CampaignEnrollmentForm() {
                 {...register("firstName", {
                   required: true,
                   minLength: 4,
+                  maxLength: 60,
                   maxLength: 30,
                 })}
               />
@@ -85,7 +86,7 @@ export default function CampaignEnrollmentForm() {
                 <p className="text-danger-lead fs-5">minLength is 4</p>
               )}
               {errors.firstname?.type === "maxLength" && (
-                <p className="text-danger-lead fs-5">maxLength is 6</p>
+                <p className="text-danger-lead fs-5">maxLength is 60</p>
               )}
             </div>
             <div className="col-xs-1 col-6 ">
@@ -103,6 +104,7 @@ export default function CampaignEnrollmentForm() {
                 {...register("lastName", {
                   required: true,
                   minLength: 4,
+                  maxLength: 60,
                   maxLength: 40,
                 })}
               />
@@ -114,7 +116,7 @@ export default function CampaignEnrollmentForm() {
                 <p className="text-danger-lead fs-5">minLength is 4</p>
               )}
               {errors.lastname?.type === "maxLength" && (
-                <p className="text-danger-lead fs-5">maxLength is 6</p>
+                <p className="text-danger-lead fs-5">maxLength is 60</p>
               )}
             </div>
           </div>
