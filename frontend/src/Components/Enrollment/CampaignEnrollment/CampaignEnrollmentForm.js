@@ -105,7 +105,6 @@ export default function CampaignEnrollmentForm() {
                   required: true,
                   minLength: 4,
                   maxLength: 60,
-                  maxLength: 40,
                 })}
               />
 

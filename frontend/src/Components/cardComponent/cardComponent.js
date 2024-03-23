@@ -19,6 +19,9 @@ function CardComponent({ campaignObj }) {
           </li>
           <li className="list-group-item">Email: {campaignObj.email}</li>
           <li className="list-group-item">Address: {campaignObj.address}</li>
+          <li className="list-group-item">
+            Funds Required: {campaignObj.fundRequired}
+          </li>
         </ul>
         <button className="btn btn-success mt-2">Donate</button>
       </div>

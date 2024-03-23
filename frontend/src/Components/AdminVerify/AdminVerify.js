@@ -40,7 +40,7 @@ function AdminVerify() {
         <p>Progress: </p>
         <ProgressBar
           bgcolor="orange"
-          progress={(+campaign.fundsRaised / +campaign.fundsRequired) * 100}
+          progress={(+campaign.fundsRaised / +campaign.fundRequired) * 100}
         />
         <button
           className="btn btn-danger"
