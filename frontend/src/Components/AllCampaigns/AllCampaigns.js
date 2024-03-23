@@ -6,14 +6,11 @@ import CardComponent from '../cardComponent/cardComponent';
 
 function AllCampaigns() {
 
-    let [allCampaignList,setAllCampaignsList] = useState([{campaignTitle: "HeartSurgeryFunding",
-    firstName: "Madhumitha",
-    lastName: "Hatti",
-    age: 20}])
+    let [allCampaignList,setAllCampaignsList] = useState([]);
     let [err,setErr] = useState('')
 
-    function getAllCampaigns(){
-        let res = axios.get('https://localhost:4000/campaigns') //change the fake url to actual url
+    async function getAllCampaigns(){
+        let res = await axios.get('https://localhost:5000/campaign/campaigns') //change the fake url to actual url
         if(res.data.statusCode===9){
             setAllCampaignsList(res.data.payload)
         }else{
