@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const path = require("path");
 const mongoClient = require("mongodb").MongoClient;
 
 const userRouter = require("./routes/user");
@@ -29,6 +30,7 @@ app.use(express.json());
 app.use("/user", userRouter);
 app.use("/campaign", campaignRouter);
 app.use("/admin", adminRouter);
+app.use(express.static(path.join(__dirname, "../frontend/build")));
 
 app.use((err, req, res, next) => {
   console.log(err);
