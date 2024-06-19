@@ -26,7 +26,7 @@ function Login() {
 
   useEffect(() => {
     if (loginStatus === true) {
-      console.log("Logged in");
+      // console.log("Logged in");
       if (currentUser.username === "root") {
         navigate("/admin-dashboard");
       } else {
