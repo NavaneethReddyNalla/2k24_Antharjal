@@ -10,7 +10,7 @@ import AdminVerify from "./Components/AdminVerify/AdminVerify";
 import AllCampaigns from "./Components/AllCampaigns/AllCampaigns";
 //import AllCampaigns from './Components/AllCampaigns/AllCampaigns';
 
-// This is a test by NNR and Abhijeet
+// This is a test by Abhijeet Mukund N V And Navaneeth Nalla Reddy
 
 function App() {
   let browserRouter = createBrowserRouter([
