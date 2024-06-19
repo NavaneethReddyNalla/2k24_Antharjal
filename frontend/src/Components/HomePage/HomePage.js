@@ -1,6 +1,7 @@
 import React from "react";
 import "./HomePage.css";
 function Homepage() {
+  //this change is done by Rithvik
   return (
     <div>
       <div className="banner">
