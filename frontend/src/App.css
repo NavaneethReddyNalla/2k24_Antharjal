@@ -1,7 +1,8 @@
 .App {
   text-align: center;
   color: black;
-  display: flex;
+  display: block;
+  background-color: aquamarine;
 }
 
 .App-logo {
