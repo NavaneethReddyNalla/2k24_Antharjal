@@ -50,7 +50,7 @@ function Login() {
               className="register-form-input form-control"
               type="text"
               placeholder="Enter your username..."
-              {...register("username", { required: true, minLength: 8 })}
+              {...register("username", { required: true, minLength: 7 })}
             />
             {errors.username?.type === "required" && (
               <p className="form-text text-danger">Username is required </p>
